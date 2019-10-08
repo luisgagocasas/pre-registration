@@ -36,7 +36,6 @@ class initPreRegistration {
       <form id="persons-table" method="GET">
         <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
         <?php
-          $table->search_box( 'search', 'search_id' ); 
           $table->display();
         ?>
       </form>

@@ -53,4 +53,4 @@ class Ajax_Pre_Registration {
   }
 }
 
-new Ajax();
+new Ajax_Pre_Registration();

@@ -14,7 +14,7 @@
 include_once('lib/init-pre-registration.php');
 include_once('lib/list-table-pre-registration.php');
 include_once('lib/resources.php');
-// include_once('lib/shortcode-pre-registration.php');
+include_once('lib/shortcode-pre-registration.php');
 include_once('lib/ajax.php');
 if (!defined('ABSPATH'))
   exit;
@@ -23,7 +23,7 @@ if (!class_exists('preRegistration')) {
   class preRegistration {
     function __construct() {
       new initPreRegistration();
-      // new shortcodePreRegistration();
+      new shortcodePreRegistration();
     }
   }
 }

@@ -97,23 +97,23 @@ class Pre_Registration_List_Table extends WP_List_Table {
   }
 
   function column_date_create($item) {
-    $resources = new Resources_Debt();
+    $resources = new Resources_Pre_Registration();
     return $resources->nicetime($item['date_create']);
   }
 
   function column_date_update($item) {
-    $resources = new Resources_Debt();
+    $resources = new Resources_Pre_Registration();
     return $resources->nicetime($item['date_update']);
   }
 
-  function column_name_user($item) {
+  function column_parent_name($item) {
     $actions = array(
       'edit' => sprintf('<a href="?page=pre_registration_form&id=%s"><strong>%s</strong></a>', $item['id'], 'Edit'),
       'delete' => sprintf('<a href="?page=%s&action=delete&id=%s"><strong>%s</strong></a>', $_REQUEST['page'], $item['id'], 'Delete'),
     );
 
     return sprintf('%s %s',
-      $item['name_user'],
+      $item['parent_name'],
       $this->row_actions($actions)
     );
   }
@@ -127,10 +127,15 @@ class Pre_Registration_List_Table extends WP_List_Table {
 
   function get_columns() {
     $columns = array(
-      'cb'          => '<input type="checkbox" />',
-      'name_user'   =>  'Nombre y Apellidos',
-      'date_create' => 'Fecha/Creado',
-      'date_update' => 'Fecha/Actualizado',
+      'cb'             => '<input type="checkbox" />',
+      'parent_name'    =>  'Nombre y Apellidos',
+      'parent_email'   =>  'Correo',
+      'parent_celphone'=>  'Celular',
+      'parent_phone'   =>  'Telefono fijo',
+      'parent_dni'     =>  'DNI',
+      'parent_address' =>  'Dirección',
+      'date_create'    => 'Fecha/Creado',
+      'date_update'    => 'Fecha/Actualizado',
     );
 
     return $columns;
@@ -138,7 +143,7 @@ class Pre_Registration_List_Table extends WP_List_Table {
 
   function get_sortable_columns() {
     $sortable_columns = array(
-      'Nombre' => array('Nombre', true),
+      'Nombre'      => array('Nombre', true),
       'date_create' => array('date_create', false),
       'date_update' => array('date_update', false),
     );
