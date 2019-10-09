@@ -7,11 +7,29 @@ jQuery(document).ready(function($) {
   $("#add_one").click(function(e) {
     e.preventDefault();
     $('.new_person').removeClass('d-none');
+    $('.one_postulant').addClass('d-none');
+    $('.remove_postulant').removeClass('d-none');
   });
-
+  
   $("#remove_one").click(function(e) {
     e.preventDefault();
     $('.new_person').addClass('d-none');
+    $('.remove_postulant').addClass('d-none');
+    $('.one_postulant').removeClass('d-none');
+  });
+
+  $("#add_two").click(function(e) {
+    e.preventDefault();
+    $('.two_person').removeClass('d-none');
+    $('.two_new_postulant').addClass('d-none');
+    $('.two_remove_postulant').removeClass('d-none');
+  });
+
+  $("#remove_two").click(function(e) {
+    e.preventDefault();
+    $('.two_person').addClass('d-none');
+    $('.two_remove_postulant').addClass('d-none');
+    $('.two_new_postulant').removeClass('d-none');
   });
 
   $.validator.addMethod(
@@ -150,13 +168,119 @@ jQuery(document).ready(function($) {
       },
     },
     submitHandler: function() {
-      console.log('form validate');
-      // $('#form_payment').waitMe({
-      //   effect: 'rotation',
-      //   text: 'Procesando pago...',
-      //   bg: 'rgba(250, 250, 250, 0.75)',
-      //   color:'#88b53d',
-      // });
+      $('#form-pre-register').waitMe({
+        effect: 'rotation',
+        text: 'Estaremos comunicandonos con usted pronto ...',
+        bg: 'rgba(250, 250, 250, 0.75)',
+        color:'#88b53d',
+      });
+      let parent_name = $("input[name='parent_name']");
+      let parent_email = $("input[name='parent_email']");
+      let parent_celphone = $("input[name='parent_celphone']");
+      let parent_phone = $("input[name='parent_phone']");
+      let parent_dni = $("input[name='parent_dni']");
+      let parent_address = $("input[name='parent_address']");
+      let student_one_name = $("input[name='student_one_name']");
+      let student_one_dni = $("input[name='student_one_dni']");
+      let student_one_grado = $("input[name='student_one_grado']");
+      let student_one_nivel = $("select[name='student_one_nivel']");
+      let student_one_procedencia = $("input[name='student_one_procedencia']");
+      let student_one_repitio_anio = $("input[name='student_one_repitio_anio']");
+      let student_one_repitio_anio_cual = $("input[name='student_one_repitio_anio_cual']");
+      let student_one_discapacidad = $("select[name='student_one_discapacidad']");
+      let student_one_discapacidad_cual = $("input[name='student_one_discapacidad_cual']");
+      let student_two_name = $("input[name='student_two_name']");
+      let student_two_dni = $("input[name='student_two_dni']");
+      let student_two_grado = $("input[name='student_two_grado']");
+      let student_two_nivel = $("select[name='student_two_nivel']");
+      let student_two_procedencia = $("input[name='student_two_procedencia']");
+      let student_two_repitio_anio = $("input[name='student_two_repitio_anio']");
+      let student_two_repitio_anio_cual = $("input[name='student_two_repitio_anio_cual']");
+      let student_two_discapacidad = $("select[name='student_two_discapacidad']");
+      let student_two_discapacidad_cual = $("input[name='student_two_discapacidad_cual']");
+      let student_three_name = $("input[name='student_three_name']");
+      let student_three_dni = $("input[name='student_three_dni']");
+      let student_three_grado = $("input[name='student_three_grado']");
+      let student_three_nivel = $("select[name='student_three_nivel']");
+      let student_three_procedencia = $("input[name='student_three_procedencia']");
+      let student_three_repitio_anio = $("input[name='student_three_repitio_anio']");
+      let student_three_repitio_anio_cual = $("input[name='student_three_repitio_anio_cual']");
+      let student_three_discapacidad = $("select[name='student_three_discapacidad']");
+      let student_three_discapacidad_cual = $("input[name='student_three_discapacidad_cual']");
+      let student_adicional_colegio = $("input[name='student_adicional_colegio']");
+      let student_adicional_recomendado = $("input[name='student_adicional_recomendado']");
+      let student_adicional_espera = $("input[name='student_adicional_espera']");
+      let student_adicional_instromento = $("select[name='student_adicional_instromento']");
+      let student_adicional_instromento_cual = $("select[name='student_adicional_instromento_cual']");
+
+      var fd = new FormData();
+      fd.append('action',     "formPreRegistration");
+      fd.append('nonceT',     data_nonce);
+      fd.append('parent_name',    parent_name.val());
+      fd.append('parent_email',    parent_email.val());
+      fd.append('parent_celphone',    parent_celphone.val());
+      fd.append('parent_phone',    parent_phone.val());
+      fd.append('parent_dni',    parent_dni.val());
+      fd.append('parent_address',    parent_address.val());
+      fd.append('student_one_name',    student_one_name.val());
+      fd.append('student_one_dni',    student_one_dni.val());
+      fd.append('student_one_grado',    student_one_grado.val());
+      fd.append('student_one_nivel',    student_one_nivel.val());
+      fd.append('student_one_procedencia',    student_one_procedencia.val());
+      fd.append('student_one_repitio_anio',    student_one_repitio_anio.val());
+      fd.append('student_one_repitio_anio_cual',    student_one_repitio_anio_cual.val());
+      fd.append('student_one_discapacidad',    student_one_discapacidad.val());
+      fd.append('student_one_discapacidad_cual',    student_one_discapacidad_cual.val());
+      fd.append('student_two_name',    student_two_name.val());
+      fd.append('student_two_dni',    student_two_dni.val());
+      fd.append('student_two_grado',    student_two_grado.val());
+      fd.append('student_two_nivel',    student_two_nivel.val());
+      fd.append('student_two_procedencia',    student_two_procedencia.val());
+      fd.append('student_two_repitio_anio',    student_two_repitio_anio.val());
+      fd.append('student_two_repitio_anio_cual',    student_two_repitio_anio_cual.val());
+      fd.append('student_two_discapacidad',    student_two_discapacidad.val());
+      fd.append('student_two_discapacidad_cual',    student_two_discapacidad_cual.val());
+      fd.append('student_three_name',    student_three_name.val());
+      fd.append('student_three_dni',    student_three_dni.val());
+      fd.append('student_three_grado',    student_three_grado.val());
+      fd.append('student_three_nivel',    student_three_nivel.val());
+      fd.append('student_three_procedencia',    student_three_procedencia.val());
+      fd.append('student_three_repitio_anio',    student_three_repitio_anio.val());
+      fd.append('student_three_repitio_anio_cual',    student_three_repitio_anio_cual.val());
+      fd.append('student_three_discapacidad',    student_three_discapacidad.val());
+      fd.append('student_three_discapacidad_cual',    student_three_discapacidad_cual.val());
+      fd.append('student_adicional_colegio',    student_adicional_colegio.val());
+      fd.append('student_adicional_recomendado',    student_adicional_recomendado.val());
+      fd.append('student_adicional_espera',    student_adicional_espera.val());
+      fd.append('student_adicional_instromento',    student_adicional_instromento.val());
+      fd.append('student_adicional_instromento_cual',    student_adicional_instromento_cual.val());
+
+      $.ajax({
+        type: 'POST',
+        url: data_url,
+        data: fd,
+        contentType: false,
+        processData: false,
+        success:function(r) {
+          console.log('data1: ', r);
+          // if (r.success == true) {
+          //   jQuery('#form_payment').waitMe({
+          //     effect: 'timer',
+          //     text: r.message,
+          //     bg: 'rgba(250, 250, 250, 0.75)',
+          //     color:'#88b53d',
+          //   });
+          //   jQuery('#message_payment_result').html('');
+          //   setTimeout(function() {
+          //     window.location = url_redirect;
+          //   }, 2000);
+          // } else {
+          //   jQuery('#form_payment').waitMe('hide');
+          //   jQuery('#message_payment_result').html(r.message).addClass('alert-error');
+          // }
+        },
+        error: function() {}
+      });
     },
   });
 

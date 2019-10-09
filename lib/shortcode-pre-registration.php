@@ -22,7 +22,7 @@ class shortcodePreRegistration {
 
     $atts = shortcode_atts(
       array(
-        'btn-submit' => 'Enviar Formulario',
+        'btn-submit' => 'Enviar Información',
         'redirect'   => 'https://google.com'
       ), $atts, 'preregistration');
     $this->form_public($atts);
@@ -69,6 +69,7 @@ class shortcodePreRegistration {
         </div>
         <blockquote class="blockquote">
           <p class="mb-0">Datos del(os) Postulante(s)</p>
+          <footer class="blockquote-footer">Postulante N.- 1</footer>
         </blockquote>
         <div class="col-6 pr-2">
           <div class="form-group">
@@ -138,13 +139,20 @@ class shortcodePreRegistration {
           </div>
         </div>
       </div>
-      <div class="row no-gutters">
+      <div class="row no-gutters one_postulant">
         <div class="col-12 text-right">
           <a href="#" class="btn" id="add_one">Agregar Postulante</a>
         </div>
       </div>
+      <div class="row no-gutters remove_postulant d-none">
+        <div class="col-12 text-right">
+          <a href="#" class="btn" id="remove_one">Quitar Postulante</a>
+        </div>
+      </div>
+      <blockquote class="blockquote d-none new_person">
+        <footer class="blockquote-footer">Postulante N.- 2</footer>
+      </blockquote>
       <div class="row no-gutters d-none new_person mt-2">
-        
         <div class="col-6 pr-2">
           <div class="form-group">
             <input type="text" class="form-control" name="student_two_name" placeholder="Nombre y Apellidos *">
@@ -212,22 +220,139 @@ class shortcodePreRegistration {
             <input type="text" class="form-control" name="student_two_discapacidad_cual" placeholder="¿De qué tipo?">
           </div>
         </div>
-
       </div>
-      <div class="row no-gutters new_person d-none">
+      <div class="row no-gutters new_person two_new_postulant d-none">
         <div class="col-12 text-right">
-          <a href="#" class="btn" id="remove_one">Quitar Postulante</a>
+          <a href="#" class="btn" id="add_two">Agregar Postulante</a>
+        </div>
+      </div>
+      <div class="row no-gutters two_remove_postulant d-none">
+        <div class="col-12 text-right">
+          <a href="#" class="btn" id="remove_two">Quitar Postulante</a>
+        </div>
+      </div>
+      <blockquote class="blockquote d-none two_person">
+        <footer class="blockquote-footer">Postulante N.- 3</footer>
+      </blockquote>
+      <div class="row no-gutters d-none two_person mt-2">
+        <div class="col-6 pr-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_name" placeholder="Nombre y Apellidos *">
+          </div>
+        </div>
+        <div class="col-6 pl-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_dni" placeholder="DNI *">
+          </div>
+        </div>
+        <div class="col-6 pr-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_grado" placeholder="Grado al que postula *">
+          </div>
+        </div>
+        <div class="col-6 pl-2">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="student_three_nivel">Nivel</label>
+            </div>
+            <select class="custom-select" id="student_three_nivel">
+              <option selected>Selecciona ...</option>
+              <option value="Inicial">Inicial</option>
+              <option value="Primaria">Primaria</option>
+              <option value="Secundaria">Secundaria</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_procedencia" placeholder="Colegio de procedencia">
+          </div>
+        </div>
+        <div class="col-6 pr-2">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="student_three_repitio_anio">¿Repitio año?</label>
+            </div>
+            <select class="custom-select" id="student_three_repitio_anio">
+              <option selected>Selecciona ...</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 pl-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_repitio_anio_cual" placeholder="¿Qué grado?">
+          </div>
+        </div>
+        <div class="col-6 pr-2">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="student_three_discapacidad">¿Discapacidad?</label>
+            </div>
+            <select class="custom-select" id="student_three_discapacidad">
+              <option selected>Selecciona ...</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 pl-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_three_discapacidad_cual" placeholder="¿De qué tipo?">
+          </div>
+        </div>
+      </div>
+      <blockquote class="blockquote">
+        <p class="mb-0">Información adicional</p>
+        <footer class="blockquote-footer">Interesado en el colegio.</footer>
+      </blockquote>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_adicional_colegio" placeholder="¿Cómo se enteró del colegio?">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_adicional_recomendado" placeholder="Viene recomendado por">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_adicional_espera" placeholder="¿Qué espera encontrar de diferente para la educación de su hijo(a)?">
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <p>¿Su hijo(a) toca algun instrumento?</p>
+        </div>
+        <div class="col-6 pr-2">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="student_adicional_instromento">Instrumento</label>
+            </div>
+            <select class="custom-select" id="student_adicional_instromento">
+              <option selected>Selecciona ...</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 pl-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="student_adicional_instromento_cual" placeholder="¿Cuál(es)?">
+          </div>
         </div>
       </div>
       <p class="fields_required">Todos los campos marcados con * son obligatorios.</p>
-      <div class="text-right">
+      <div class="text-center">
         <button type="submit" class="btn"><?php echo $atts['btn-submit'] ?></button>
       </div>
     </form>
     <script>
       var url_redirect =  '<?php echo $atts['redirect']; ?>';
       var data_url     =  '<?php echo admin_url('admin-ajax.php'); ?>';
-      var data_nonce   =  '<?php echo wp_create_nonce('nonceT'); ?>'
+      var data_nonce   =  '<?php echo wp_create_nonce(date("Ymd")); ?>'
     </script>
     <?php
   }
