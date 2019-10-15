@@ -320,7 +320,7 @@ class shortcodePreRegistration {
         </div>
         <div class="col-12">
           <div class="form-group">
-            <input type="text" class="form-control" name="student_adicional_espera" placeholder="¿Qué espera encontrar de diferente para la educación de su hijo(a)?">
+            <input type="text" class="form-control" name="student_adicional_espera" placeholder="¿Qué espera encontrar de diferente para la educación de su hijo(a)?" title="¿Qué espera encontrar de diferente para la educación de su hijo(a)?">
           </div>
         </div>
         <div class="col-12 text-center">

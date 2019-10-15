@@ -170,9 +170,9 @@ jQuery(document).ready(function($) {
     submitHandler: function() {
       $('#form-pre-register').waitMe({
         effect: 'rotation',
-        text: 'Estaremos comunicandonos con usted pronto ...',
+        text: 'Procesando ...',
         bg: 'rgba(250, 250, 250, 0.75)',
-        color:'#88b53d',
+        color:'#ffc107',
       });
       let parent_name = $("input[name='parent_name']");
       let parent_email = $("input[name='parent_email']");
@@ -263,64 +263,30 @@ jQuery(document).ready(function($) {
         processData: false,
         success:function(r) {
           console.log('data1: ', r);
-          // if (r.success == true) {
-          //   jQuery('#form_payment').waitMe({
-          //     effect: 'timer',
-          //     text: r.message,
-          //     bg: 'rgba(250, 250, 250, 0.75)',
-          //     color:'#88b53d',
-          //   });
-          //   jQuery('#message_payment_result').html('');
-          //   setTimeout(function() {
-          //     window.location = url_redirect;
-          //   }, 2000);
-          // } else {
-          //   jQuery('#form_payment').waitMe('hide');
-          //   jQuery('#message_payment_result').html(r.message).addClass('alert-error');
-          // }
+          if (r.state == true) {
+            $('#form-pre-register').waitMe({
+              effect: 'rotation',
+              text: 'Estaremos comunicandonos con usted pronto ...',
+              bg: 'rgba(250, 250, 250, 0.75)',
+              color:'#88b53d',
+            });
+            setTimeout(function() {
+              window.location = url_redirect;
+            }, 2000);
+          } else {
+            $('#form-pre-register').waitMe({
+              effect: 'rotation',
+              text: 'Se produjo un error ...',
+              bg: 'rgba(250, 250, 250, 0.75)',
+              color:'#dc3545',
+            });
+            setTimeout(function() {
+              $('#form-pre-register').waitMe('hide');
+            }, 2000);
+          }
         },
         error: function() {}
       });
     },
   });
-
-  // let situaciones = $("input[name='situaciones']").val();
-  // let capital = $("input[name='capital']").val();
-  // let intereses = $("input[name='intereses']").val();
-  // let recibos = $("input[name='recibos']").val();
-  // let faltapagar = $("input[name='faltapagar']").val();
-  // let name_user = $("input[name='name_user']").val();
-  // let email_user = $("input[name='email_user']").val();
-  // let phone_user = $("input[name='phone_user']").val();
-
-  // var fd = new FormData();
-  // fd.append('action', 'formCreditEnd');
-  // fd.append('nonceT', data_nonce);
-  // fd.append('situaciones', situaciones);
-  // fd.append('capital', capital);
-  // fd.append('intereses', intereses);
-  // fd.append('recibos', recibos);
-  // fd.append('faltapagar', faltapagar);
-  // fd.append('name_user', name_user);
-  // fd.append('email_user', email_user);
-  // fd.append('phone_user', phone_user);
-
-  // $.ajax({
-  //   type: 'POST',
-  //   url: data_url,
-  //   data: fd,
-  //   contentType: false,
-  //   processData: false,
-  //   error:function() {},
-  //   success:function( r ) {
-  //     if (r.state) {
-  //       $("#message_return").html("Su información se a enviado correctamente.");
-  //       setTimeout(function() {
-  //         window.location = url_redirect;
-  //       }, 2000);      
-  //     } else {
-  //       $("#message_return").html("Se presento un error en su solicitud.");
-  //     }
-  //   },
-  // });
 });
