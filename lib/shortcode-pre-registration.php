@@ -32,7 +32,7 @@ class shortcodePreRegistration {
   function form_public($atts) {
     global $wpdb; ?>
     <form id="form-pre-register" class="needs-validation" data-toggle="validator" action="#" method="post" novalidate>
-      <blockquote class="blockquote">
+      <blockquote class="blockquote w-100">
         <p class="mb-0">Datos del Padre de familia.</p>
         <footer class="blockquote-footer">Interesado en el colegio.</footer>
       </blockquote>
@@ -67,7 +67,7 @@ class shortcodePreRegistration {
             <input type="text" class="form-control" name="parent_address" placeholder="Domicilio *">
           </div>
         </div>
-        <blockquote class="blockquote">
+        <blockquote class="blockquote w-100">
           <p class="mb-0">Datos del(os) Postulante(s)</p>
           <footer class="blockquote-footer">Postulante N.- 1</footer>
         </blockquote>
@@ -303,7 +303,7 @@ class shortcodePreRegistration {
           </div>
         </div>
       </div>
-      <blockquote class="blockquote">
+      <blockquote class="blockquote w-100">
         <p class="mb-0">Información adicional</p>
         <footer class="blockquote-footer">Interesado en el colegio.</footer>
       </blockquote>
